@@ -1,0 +1,9 @@
+
+:root {
+  --font-family-main: sans-serif;
+}
+
+body, header {
+  margin: 0;
+  padding: 0;
+}

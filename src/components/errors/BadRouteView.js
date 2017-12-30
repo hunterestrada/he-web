@@ -2,11 +2,11 @@
 import React from 'react'
 
 import { BadRouteView as string } from 'constants/string.js'
-import * as name from 'constants/name.js'
+import * as style from 'constants/style.js'
 
 import './BadRouteView.css'
 
-const NAME_VIEW_ROUTE_BAD = name.getContentClassName([
+const NAME_VIEW_ROUTE_BAD = style.getContentComponentClassName([
   'BadRouteView'
 ])
 

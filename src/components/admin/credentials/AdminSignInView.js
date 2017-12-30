@@ -1,11 +1,13 @@
 
 import React from 'react';
+import AdminSignInForm from './forms/AdminSignInForm'
 
-import * as name from 'constants/name.js'
+import * as style from 'constants/style.js'
+import { AdminSignInView as string } from 'constants/string.js'
 import './AdminSignInView.css'
 
 
-const NAME_VIEW_SIGN_IN_ADMIN = name.getContentClassName([
+const NAME_VIEW_SIGN_IN_ADMIN = style.getContentComponentClassName([
   'AdminSignInView'
 ]);
 
@@ -15,6 +17,8 @@ class AdminSignInView extends React.Component {
   render() {
     return (
       <div className={NAME_VIEW_SIGN_IN_ADMIN}>
+        <h1>{string.title()}</h1>
+        <AdminSignInForm/>
       </div>
     )
   }

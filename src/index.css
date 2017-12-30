@@ -16,16 +16,16 @@
   --height-bar-bottom: 62px;
   --height-icon-main: 32px;
   --padding-main: 16px;
+  --width-max-main: 800px;
 }
 
-html, body, div, ol, ul {
+html, body, header, footer, div, ol, ul {
   margin: 0;
   padding: 0;
 }
 
 html {
   box-sizing: border-box;
-  height: 100vh;
 }
 
 *, *:before, *:after {
@@ -35,7 +35,6 @@ html {
 body {
   background-color: var(--color-background-bar);
   position: relative;
-  min-height: 100vh;
 }
 
 a, h1, h2, h3, h4, h5, h6 {
@@ -77,11 +76,16 @@ h6 {
   min-height: calc(
     100vh - var(--padding-main) - var(--height-bar-bottom)
   );
+  position: relative;
+}
+
+.ContentComponent {
+  margin: auto;
+  max-width: var(--width-max-main);
   padding-top: var(--padding-main);
   padding-left: var(--padding-main);
   padding-right: var(--padding-main);
   padding-bottom: calc(
     var(--padding-main) + var(--height-bar-bottom)
   );
-  position: relative;
 }

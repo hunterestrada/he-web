@@ -14,6 +14,7 @@ import TopBar from 'components/bars/TopBar'
 
 import * as endpoint from 'constants/endpoint.js'
 import * as route from 'constants/route.js'
+import * as style from 'constants/style.js'
 
 import './App.css';
 
@@ -45,30 +46,32 @@ class App extends React.Component {
     return (
         <div className={NAME_APP}>
           <TopBar/>
-          <Switch>
-            <Route exact path={route.ABOUT}
-              component={AboutDetailView}/>
-            <Route exact path={route.ADMIN_ARTICLES}
-              component={AdminArticleTableView}/>
-            <Route exact path={route.ADMIN_SIGN_IN}
-              component={AdminSignInView}/>
-            <Route exact path={route.ADMIN_SIGN_UP}
-              component={AdminSignUpView}/>
-            <Route exact path={route.ARTICLES}
-              render={
-                (props) => (
-                  <ArticleListView props
-                    articleList={this.state.articleList}/>
-                )
-              }/>
-            <Route exact path={route.ARTICLE}
-              render={
-                (props) => (
-                    <ArticleDetailView props/>
-                )
-              }/>
-            <Route component={BadRouteView}/>
-          </Switch>
+          <div className={style.NAME_CONTENT}>
+            <Switch>
+              <Route exact path={route.ABOUT}
+                component={AboutDetailView}/>
+              <Route exact path={route.ADMIN_ARTICLES}
+                component={AdminArticleTableView}/>
+              <Route exact path={route.ADMIN_SIGN_IN}
+                component={AdminSignInView}/>
+              <Route exact path={route.ADMIN_SIGN_UP}
+                component={AdminSignUpView}/>
+              <Route exact path={route.ARTICLES}
+                render={
+                  (props) => (
+                    <ArticleListView props
+                      articleList={this.state.articleList}/>
+                  )
+                }/>
+              <Route exact path={route.ARTICLE}
+                render={
+                  (props) => (
+                      <ArticleDetailView props/>
+                  )
+                }/>
+              <Route component={BadRouteView}/>
+            </Switch>
+          </div>
           <BottomBar/>
         </div>
     );

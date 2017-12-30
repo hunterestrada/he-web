@@ -22,6 +22,21 @@ export class AboutDetailView {
   }
 }
 
+export class AdminSignInView {
+  static title() {
+    return "Sign In";
+  }
+}
+
+export class AdminSignInForm {
+  static emailPlaceholder() {
+    return "Email";
+  }
+  static passwordPlaceholder() {
+    return "Password";
+  }
+}
+
 export class BadRouteView {
   static title() {
     return "This page doesn't exist."

@@ -1,11 +1,11 @@
 
 import React from 'react';
 
-import * as name from 'constants/name.js';
+import * as style from 'constants/style.js'
 import './ArticleDetailView.css';
 
 
-const NAME_VIEW_DETAIL_ARTICLE = name.getContentClassName(['ArticleDetailView']);
+const NAME_VIEW_DETAIL_ARTICLE = style.getContentComponentClassName(['ArticleDetailView']);
 
 const ArticleDetailView = ({title, detail, content}) => (
   <div className={NAME_VIEW_DETAIL_ARTICLE}>

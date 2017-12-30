@@ -5,11 +5,12 @@
   position: relative;
 }
 
-.LinkHolder {
-  align-items: baseline;
+.TopBarContent {
   display: flex;
+  align-items: baseline;
   justify-content: space-between;
-  width: 100%;
+  margin: auto;
+  max-width: var(--width-max-main);
 }
 
 .SmallLink, .LargeLink {
@@ -21,8 +22,10 @@
 
 .SmallLink {
   font-size: var(--font-size-3);
+  right: 0;
 }
 
 .LargeLink {
+  left: 0;
   font-size: var(--font-size-1);
 }

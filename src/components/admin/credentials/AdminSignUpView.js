@@ -1,9 +1,9 @@
 
 import React from 'react'
 
-import * as name from 'constants/name.js'
+import * as style from 'constants/style.js'
 
-const NAME_VIEW_SIGN_UP_ADMIN = name.getContentClassName([
+const NAME_VIEW_SIGN_UP_ADMIN = style.getContentComponentClassName([
   'AdminSignUpView'
 ])
 

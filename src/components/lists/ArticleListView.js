@@ -3,12 +3,12 @@ import React from 'react';
 
 import ArticleListItem from './items/ArticleListItem';
 
-import * as name from 'constants/name.js';
+import * as style from 'constants/style.js'
 import * as route from 'constants/route.js';
 import './ArticleListView.css';
 
 
-const NAME_VIEW_LIST_ARTICLE = name.getContentClassName(['ArticleListView']);
+const NAME_VIEW_LIST_ARTICLE = style.getContentComponentClassName(['ArticleListView']);
 
 const ArticleListView = ({articleList}) => (
   <div className={NAME_VIEW_LIST_ARTICLE}>

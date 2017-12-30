@@ -1,0 +1,28 @@
+
+.TopBar {
+  height: var(--height-bar-top);
+  justify-content: space-between;
+  position: relative;
+}
+
+.LinkHolder {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.SmallLink, .LargeLink {
+  font-weight: bold;
+  padding: var(--padding-main);
+  text-align: center;
+  text-decoration: none;
+}
+
+.SmallLink {
+  font-size: var(--font-size-3);
+}
+
+.LargeLink {
+  font-size: var(--font-size-1);
+}

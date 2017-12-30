@@ -1,4 +1,7 @@
 
-export const INDEX = '/';
+const INDEX = '/';
+
 export const ABOUT = INDEX + 'about';
-export const FEED = INDEX + 'feed';
+export const ARTICLES = INDEX;
+export const ARTICLE = INDEX + 'article/'
+export const FEED = INDEX;

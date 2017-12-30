@@ -1,0 +1,9 @@
+
+.SocialIcon {
+  padding: var(--padding-main);
+}
+
+.SocialIconImage {
+  align-content: center;
+  height: var(--height-icon-main);
+}

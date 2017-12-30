@@ -1,0 +1,8 @@
+
+.BottomBar {
+  bottom: 0;
+  display: flex;
+  height: var(--height-bar-bottom);
+  justify-content: center;
+  position: absolute;
+}

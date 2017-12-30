@@ -1,0 +1,18 @@
+
+import React from 'react';
+
+import * as name from 'constants/name.js';
+import './ArticleDetailView.css';
+
+
+const NAME_VIEW_DETAIL_ARTICLE = name.getContentClassName(['ArticleDetailView']);
+
+const ArticleDetailView = ({title, detail, content}) => (
+  <div className={NAME_VIEW_DETAIL_ARTICLE}>
+    <h1>{title}</h1>
+    <h3>{detail}</h3>
+    {content}
+  </div>
+)
+
+export default ArticleDetailView

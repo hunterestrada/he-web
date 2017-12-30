@@ -74,9 +74,14 @@ h6 {
 
 .Content {
   background-color: var(--color-background-main);
+  min-height: calc(
+    100vh - var(--padding-main) - var(--height-bar-bottom)
+  );
   padding-top: var(--padding-main);
   padding-left: var(--padding-main);
   padding-right: var(--padding-main);
-  padding-bottom: calc(var(--padding-main) + var(--height-bar-bottom));
+  padding-bottom: calc(
+    var(--padding-main) + var(--height-bar-bottom)
+  );
   position: relative;
 }

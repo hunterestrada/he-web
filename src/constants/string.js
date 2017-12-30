@@ -22,6 +22,15 @@ export class AboutDetailView {
   }
 }
 
+export class BadRouteView {
+  static title() {
+    return "This page doesn't exist."
+  }
+  static subtitle() {
+    return "If you manually typed the link, check for typos then try again."
+  }
+}
+
 export class BottomBar {
 
   static gitHubImageLink() {

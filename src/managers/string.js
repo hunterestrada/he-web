@@ -28,18 +28,36 @@ export class AdminSignInView {
   }
 }
 
-export class AdminSignInForm {
+export class AdminSignUpView {
+  static title() {
+    return "Sign Up";
+  }
+}
+
+export class AdminCredentialForm {
   static emailPlaceholder() {
     return "Email";
   }
   static passwordPlaceholder() {
     return "Password";
   }
+  static submit() {
+    return "Submit";
+  }
+  static invalidCredentials() {
+    return "Invalid credentials";
+  }
+  static invalidEmail() {
+    return "Invalid email";
+  }
+  static invalidPassword() {
+    return "Invalid password"
+  }
 }
 
 export class BadRouteView {
   static title() {
-    return "This page doesn't exist."
+    return "That page doesn't exist."
   }
   static subtitle() {
     return "If you manually typed the link, check for typos then try again."

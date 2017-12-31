@@ -3,8 +3,8 @@ import React from 'react';
 
 import ArticleListItem from './items/ArticleListItem';
 
-import * as style from 'constants/style.js'
-import * as route from 'constants/route.js';
+import * as style from 'managers/style.js'
+import * as route from 'managers/route.js';
 import './ArticleListView.css';
 
 

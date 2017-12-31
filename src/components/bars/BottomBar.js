@@ -3,8 +3,8 @@ import React from 'react'
 
 import SocialIcon from 'components/icons/SocialIcon.js'
 
-import { BottomBar as string } from 'constants/string.js'
-import * as style from 'constants/style.js'
+import { BottomBar as string } from 'managers/string.js'
+import * as style from 'managers/style.js'
 
 import './Bar.css'
 import './BottomBar.css'

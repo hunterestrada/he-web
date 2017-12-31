@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import * as style from 'constants/style.js'
+import * as style from 'managers/style.js'
 import './ArticleDetailView.css';
 
 

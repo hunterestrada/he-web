@@ -1,12 +1,15 @@
 
 import React from 'react'
 
-import { AdminSignInForm as string } from 'constants/string.js'
-import * as form from 'constants/form.js'
+import { AdminCredentialForm as string } from 'managers/string.js'
+import * as api from 'managers/api.js'
+import * as form from 'managers/form.js'
 
 import './AdminSignInForm.css'
+import './CredentialInput.css'
 
 const NAME_FORM_SIGN_IN_ADMIN = 'AdminSignInForm';
+const NAME_INPUT_CREDENTIAL = 'CredentialInput';
 
 class AdminSignInForm extends React.Component {
 
@@ -24,11 +27,21 @@ class AdminSignInForm extends React.Component {
   render() {
     return (
       <form className={NAME_FORM_SIGN_IN_ADMIN}
+        method={form.METHOD_POST}
         onSubmit={this.onUserTapSubmit}>
-        <input type={form.TYPE_INPUT_TEXT}
-          placeholder={string.emailPlaceholder()}/>
-        <input type={form.TYPE_INPUT_TEXT}
-          placeholder={string.passwordPlaceholder()}/>
+        <input className={NAME_INPUT_CREDENTIAL}
+          type={form.TYPE_INPUT_EMAIL}
+          placeholder={string.emailPlaceholder()}
+          value={this.state.email}
+          onChange={this.onUserEditEmail}/>
+        <input className={NAME_INPUT_CREDENTIAL}
+          type={form.TYPE_INPUT_PASSWORD}
+          placeholder={string.passwordPlaceholder()}
+          value={this.state.password}
+          onChange={this.onUserEditPassword}/>
+        <input className={NAME_INPUT_CREDENTIAL}
+          type={form.TYPE_INPUT_SUBMIT}
+          value={string.submit()}/>
       </form>
     );
   }
@@ -46,7 +59,30 @@ class AdminSignInForm extends React.Component {
   }
 
   onUserTapSubmit(event) {
-    alert('Access Granted');
+    event.preventDefault();
+    const email = this.state.email || '';
+    const password = this.state.password || '';
+    const isValidEmail = form.didValidateEmail(email);
+    const isValidPassword = form.didValidatePassword(password);
+    const isValidCredential = isValidEmail || isValidPassword;
+    if (!isValidCredential) {
+      return alert(string.invalidCredentials());
+    }
+    if (!isValidEmail) {
+      return alert(string.invalidEmail());
+    }
+    if (!isValidPassword) {
+      return alert(string.invalidPassword());
+    }
+    api.postSignInToken(
+      email, password
+    ).then(
+      value => console.log(value)
+    ).catch(
+      error => {
+        alert(error.status)
+      }
+    )
   }
 
 }

@@ -1,8 +1,8 @@
 
 import React from 'react';
 
-import * as style from 'constants/style.js'
-import { AboutDetailView as string } from 'constants/string.js';
+import * as style from 'managers/style.js'
+import { AboutDetailView as string } from 'managers/string.js';
 import './AboutDetailView.css';
 
 const NAME_VIEW_DETAIL_ABOUT = style.getContentComponentClassName(['AboutDetailView']);

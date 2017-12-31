@@ -2,10 +2,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-import { TopBar as string } from 'constants/string.js'
+import { TopBar as string } from 'managers/string.js'
 
-import * as style from 'constants/style.js'
-import * as route from 'constants/route.js'
+import * as style from 'managers/style.js'
+import * as route from 'managers/route.js'
 
 import './Bar.css';
 import './TopBar.css';

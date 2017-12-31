@@ -2,8 +2,8 @@
 import React from 'react';
 import AdminSignInForm from './forms/AdminSignInForm'
 
-import * as style from 'constants/style.js'
-import { AdminSignInView as string } from 'constants/string.js'
+import * as style from 'managers/style.js'
+import { AdminSignInView as string } from 'managers/string.js'
 import './AdminSignInView.css'
 
 

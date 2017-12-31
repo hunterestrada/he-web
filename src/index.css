@@ -26,8 +26,13 @@ html, body, header, footer, div, ol, ul {
 
 html {
   box-sizing: border-box;
+  min-height: 100%;
 }
 
+/*
+  Allows bottom bar to stick to bottom if content doesn't
+  fill the view's height.
+ */
 *, *:before, *:after {
   box-sizing: inherit;
 }

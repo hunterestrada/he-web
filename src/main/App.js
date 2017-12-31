@@ -12,9 +12,9 @@ import BadRouteView from 'components/errors/BadRouteView'
 import BottomBar from 'components/bars/BottomBar'
 import TopBar from 'components/bars/TopBar'
 
-import * as endpoint from 'constants/endpoint.js'
-import * as route from 'constants/route.js'
-import * as style from 'constants/style.js'
+import * as api from 'managers/api.js'
+import * as route from 'managers/route.js'
+import * as style from 'managers/style.js'
 
 import './App.css';
 
@@ -31,15 +31,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch(endpoint.ARTICLES)
-      .then(response =>
-        response.json()
-      )
-      .then(payload =>
-        this.setState({
-          articleList: payload.data
-        })
-      )
+    api.getArticleList().then(
+      json => this.setState({
+        articleList: json.data
+      })
+    )
   }
 
   render() {

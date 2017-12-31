@@ -3,7 +3,6 @@ import React from 'react';
 
 import { AdminArticleTableView as string } from 'managers/string.js'
 import * as api from 'managers/api.js'
-import * as style from 'managers/style.js'
 import './AdminArticleTableView.css'
 
 const NAME_VIEW_TABLE_ARTICLE_ADMIN = 'AdminArticleTableView';
@@ -46,7 +45,7 @@ class AdminArticleTableView extends React.Component {
           <tbody>
             {
               this.state.articleList.map(article => (
-                <tr>
+                <tr key={article.id}>
                   <td>{article.slug}</td>
                   <td>{article.title}</td>
                   <td>{article.detail}</td>

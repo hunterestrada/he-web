@@ -4,6 +4,7 @@
   --color-background-bar: WhiteSmoke;
   --color-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
   --color-text-main: #333;
+  --font-family-mono: "Menlo", "Courier New", "Courier", monospace;
   --font-family-sans-serif: sans-serif;
   --font-family-serif: sans-serif;
   --font-size-1: 36px;
@@ -19,9 +20,14 @@
   --width-max-main: 800px;
 }
 
-html, body, header, footer, div, ol, ul {
+html, body, header, footer, table, div, ol, ul {
   margin: 0;
   padding: 0;
+}
+
+th, tr, td {
+  font-family: var(--font-family-mono);
+  padding: var(--padding-main);
 }
 
 html {

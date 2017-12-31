@@ -22,6 +22,30 @@ export class AboutDetailView {
   }
 }
 
+export class AdminArticleTableView {
+  static title() {
+    return "Articles";
+  }
+  static articleTitle() {
+    return "title";
+  }
+  static articleDetail() {
+    return "detail";
+  }
+  static articleSlug() {
+    return "slug";
+  }
+  static articleContent() {
+    return "content";
+  }
+  static articleUpdated() {
+    return "updated";
+  }
+  static articleCreated() {
+    return "created";
+  }
+}
+
 export class AdminSignInView {
   static title() {
     return "Sign In";

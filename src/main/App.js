@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Route, Switch } from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
 
 import AboutDetailView from 'components/details/AboutDetailView'
 import AdminArticleTableView from 'components/admin/tables/AdminArticleTableView'
@@ -13,6 +13,7 @@ import BottomBar from 'components/bars/BottomBar'
 import TopBar from 'components/bars/TopBar'
 
 import * as api from 'managers/api.js'
+import * as cache from 'managers/cache.js'
 import * as route from 'managers/route.js'
 import * as style from 'managers/style.js'
 
@@ -26,8 +27,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      articleList: []
+      articleList: [],
+      isAuthenticated: cache.getIsAuthenticated()
     }
+    this.attemptSigningInUser = this.attemptSigningInUser.bind(this);
   }
 
   componentDidMount() {
@@ -46,22 +49,39 @@ class App extends React.Component {
             <Switch>
               <Route exact path={route.ABOUT}
                 component={AboutDetailView}/>
-              <Route exact path={route.ADMIN_ARTICLES}
-                component={AdminArticleTableView}/>
+              <Route exact path={route.ADMIN_ARTICLE_TABLE}
+                render={
+                  props => (
+                    <AdminArticleTableView props
+                      articleList={this.state.articleList}/>
+                  )
+                }/>
               <Route exact path={route.ADMIN_SIGN_IN}
-                component={AdminSignInView}/>
+              render={
+                props => {
+                  if (this.state.isAuthenticated) {
+                    return (
+                      <Redirect to={route.ADMIN_ARTICLE_TABLE}/>
+                    )
+                  }
+                  return (
+                    <AdminSignInView props
+                      attemptSigningInUser={this.attemptSigningInUser}/>
+                  )
+                }
+              }/>
               <Route exact path={route.ADMIN_SIGN_UP}
                 component={AdminSignUpView}/>
               <Route exact path={route.ARTICLES}
                 render={
-                  (props) => (
+                  props => (
                     <ArticleListView props
                       articleList={this.state.articleList}/>
                   )
                 }/>
               <Route exact path={route.ARTICLE}
                 render={
-                  (props) => (
+                  props => (
                       <ArticleDetailView props/>
                   )
                 }/>
@@ -71,6 +91,26 @@ class App extends React.Component {
           <BottomBar/>
         </div>
     );
+  }
+
+  attemptSigningInUser(validatedEmail, validatedPassword) {
+    api.postSignInToken(
+      validatedEmail, validatedPassword
+    ).then(
+      value => {
+        cache.setIsAuthenticated(true);
+        this.setState({
+          isAuthenticated: true
+        });
+      }
+    ).catch(
+      error => {
+        console.log(error);
+        if (error.status) {
+          alert(error.status);
+        }
+      }
+    )
   }
 
 }

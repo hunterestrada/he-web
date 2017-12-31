@@ -1,9 +1,10 @@
 
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 
 import { AdminCredentialForm as string } from 'managers/string.js'
-import * as api from 'managers/api.js'
 import * as form from 'managers/form.js'
+import * as route from 'managers/route.js'
 
 import './AdminSignInForm.css'
 import './CredentialInput.css'
@@ -17,7 +18,8 @@ class AdminSignInForm extends React.Component {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      isAuthenticated: false
     };
     this.onUserEditEmail = this.onUserEditEmail.bind(this);
     this.onUserEditPassword = this.onUserEditPassword.bind(this);
@@ -25,6 +27,9 @@ class AdminSignInForm extends React.Component {
   }
 
   render() {
+    if (this.state.isAuthenticated) {
+      return <Redirect to={route.ADMIN_ARTICLE_TABLE}/>
+    }
     return (
       <form className={NAME_FORM_SIGN_IN_ADMIN}
         method={form.METHOD_POST}
@@ -74,15 +79,7 @@ class AdminSignInForm extends React.Component {
     if (!isValidPassword) {
       return alert(string.invalidPassword());
     }
-    api.postSignInToken(
-      email, password
-    ).then(
-      value => console.log(value)
-    ).catch(
-      error => {
-        alert(error.status)
-      }
-    )
+    this.props.attemptSigningInUser(email, password);
   }
 
 }

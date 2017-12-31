@@ -18,7 +18,8 @@ class AdminSignInView extends React.Component {
     return (
       <div className={NAME_VIEW_SIGN_IN_ADMIN}>
         <h1>{string.title()}</h1>
-        <AdminSignInForm/>
+        <AdminSignInForm
+          attemptSigningInUser={this.props.attemptSigningInUser}/>
       </div>
     )
   }

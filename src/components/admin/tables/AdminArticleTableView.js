@@ -10,10 +10,18 @@ const NAME_VIEW_TABLE_ARTICLE_ADMIN = style.getContentComponentClassName([
 
 class AdminArticleTableView extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      articleList: props.articleList || []
+    };
+  }
+
   render() {
     return (
-      <div className={NAME_VIEW_TABLE_ARTICLE_ADMIN}>
-      </div>
+      <table className={NAME_VIEW_TABLE_ARTICLE_ADMIN}>
+
+      </table>
     )
   }
 

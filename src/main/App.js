@@ -56,20 +56,27 @@ class App extends React.Component {
                       articleList={this.state.articleList}/>
                   )
                 }/>
+              <Route exact path={route.ADMIN}
+                render={
+                  props => {
+                    if (this.state.isAuthenticated) {
+                      return <Redirect to={route.ADMIN_ARTICLE_TABLE}/>
+                    }
+                    return <Redirect to={route.ADMIN_SIGN_IN}/>
+                  }
+                }/>
               <Route exact path={route.ADMIN_SIGN_IN}
-              render={
-                props => {
-                  if (this.state.isAuthenticated) {
+                render={
+                  props => {
+                    if (this.state.isAuthenticated) {
+                      return <Redirect to={route.ADMIN_ARTICLE_TABLE}/>
+                    }
                     return (
-                      <Redirect to={route.ADMIN_ARTICLE_TABLE}/>
+                      <AdminSignInView props
+                        attemptSigningInUser={this.attemptSigningInUser}/>
                     )
                   }
-                  return (
-                    <AdminSignInView props
-                      attemptSigningInUser={this.attemptSigningInUser}/>
-                  )
-                }
-              }/>
+                }/>
               <Route exact path={route.ADMIN_SIGN_UP}
                 component={AdminSignUpView}/>
               <Route exact path={route.ARTICLES}
@@ -79,10 +86,12 @@ class App extends React.Component {
                       articleList={this.state.articleList}/>
                   )
                 }/>
-              <Route exact path={route.ARTICLE}
+              <Route exact path={route.ARTICLE + route.PATH_ID_ARTICLE}
                 render={
                   props => (
-                      <ArticleDetailView props/>
+                      <ArticleDetailView props
+                        articleId={props.match.params.article_id}
+                        article={{}}/>
                   )
                 }/>
               <Route component={BadRouteView}/>

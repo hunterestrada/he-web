@@ -1,4 +1,9 @@
 
 .AboutDetailView {
-  
+  padding-left: 100px;
+}
+
+.TextComponent {
+  padding-left: var(--padding-main);
+  padding-right: var(--padding-main);
 }

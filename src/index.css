@@ -1,8 +1,8 @@
 
 :root {
-  --color-background-main: #fff;
-  --color-background-bar: WhiteSmoke;
-  --color-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  --color-background-main: WhiteSmoke;
+  --color-background-card: #fff;
+  --box-shadow-main: 0px 2px 8px rgba(0, 0, 0, 0.25);
   --color-text-main: #333;
   --font-family-mono: "Menlo", "Courier New", "Courier", monospace;
   --font-family-sans-serif: sans-serif;
@@ -16,6 +16,7 @@
   --height-bar-top: auto;
   --height-bar-bottom: 62px;
   --height-icon-main: 32px;
+  --margin-main: 16px;
   --padding-main: 16px;
   --width-max-main: 800px;
 }
@@ -48,10 +49,12 @@ body {
   position: relative;
 }
 
-a, h1, h2, h3, h4, h5, h6 {
+a, p, h1, h2, h3, h4, h5, h6 {
   color: var(--color-text-main);
   font-family: var(--font-family-sans-serif);
   text-decoration: none;
+  padding: 0px;
+  margin: 8px;
 }
 
 a {
@@ -82,8 +85,17 @@ h6 {
   font-size: var(--font-size-6);
 }
 
+.Card {
+  background-color: var(--color-background-card);
+  border-radius: 12px;
+  box-shadow: var(--box-shadow-main);
+  padding-top: var(--padding-main);
+  padding-bottom: var(--padding-main);
+}
+
 .Content {
   background-color: var(--color-background-main);
+  min-width: 100vw;
   min-height: calc(
     100vh - var(--padding-main) - var(--height-bar-bottom)
   );

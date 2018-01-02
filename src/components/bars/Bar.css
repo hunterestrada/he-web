@@ -1,7 +1,6 @@
 
 .Bar {
-  background-color: var(--color-background-bar);
-  box-shadow: var(--color-shadow);
+  box-shadow: var(--box-shadow-main);
   width: 100%;
   z-index: 1;
 }

@@ -1,8 +1,10 @@
 
 const INDEX = '/';
-const ADMIN = INDEX + 'admin/';
+
+export const PATH_ID_ARTICLE = ':article_id';
 
 export const ABOUT = INDEX + 'about';
+export const ADMIN = INDEX + 'admin/';
 export const ADMIN_ARTICLE_TABLE = ADMIN  + 'articles';
 export const ADMIN_SIGN_IN = ADMIN + 'sign-in';
 export const ADMIN_SIGN_UP = ADMIN + 'sign-up';

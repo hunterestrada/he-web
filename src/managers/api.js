@@ -32,6 +32,13 @@ const fetchJSON = (endpoint, method = METHOD_GET, data) => {
 
 // ENDPOINT_ARTICLE_LIST
 
+export const getArticle = (id) => {
+  return fetchJSON(
+    ENDPOINT_ARTICLE_LIST + id,
+    METHOD_GET
+  )
+}
+
 export const getArticleList = () => {
   return fetchJSON(
     ENDPOINT_ARTICLE_LIST

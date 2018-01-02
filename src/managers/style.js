@@ -1,6 +1,7 @@
 
 const JOINER_NAME = ' ';
 
+export const NAME_CARD = 'Card';
 export const NAME_CONTENT = 'Content';
 export const NAME_CONTENT_COMPONENT = NAME_CONTENT + 'Component';
 

@@ -1,4 +1,15 @@
 
 .ArticleListItem {
-  
+  margin-top: var(--margin-main);
+  margin-bottom: var(--margin-main);
+}
+
+.TitleView {
+  padding-left: var(--padding-main);
+  padding-right: var(--padding-main);
+}
+
+.DetailView {
+  padding-left: var(--padding-main);
+  padding-right: var(--padding-main);
 }

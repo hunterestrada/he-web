@@ -1,8 +1,8 @@
 
 :root {
-  --color-background-main: WhiteSmoke;
+  --color-background-main: #fff;
   --color-background-card: #fff;
-  --box-shadow-main: 0px 2px 8px rgba(0, 0, 0, 0.25);
+  --box-shadow-main: 0px 2px 8px rgba(0, 0, 0, 0.40);
   --color-text-main: #333;
   --font-family-mono: "Menlo", "Courier New", "Courier", monospace;
   --font-family-sans-serif: sans-serif;
@@ -31,21 +31,8 @@ th, tr, td {
   padding: var(--padding-main);
 }
 
-html {
-  box-sizing: border-box;
-  min-height: 100%;
-}
-
-/*
-  Allows bottom bar to stick to bottom if content doesn't
-  fill the view's height.
- */
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
 body {
-  background-color: var(--color-background-bar);
+  background-color: var(--color-background-main);
   position: relative;
 }
 
@@ -94,7 +81,10 @@ h6 {
 }
 
 .Content {
-  background-color: var(--color-background-main);
+  animation: Gradient 15s ease infinite;
+  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+  background-size: 400% 400%;
+  color: #fff;
   min-width: 100vw;
   min-height: calc(
     100vh - var(--padding-main) - var(--height-bar-bottom)
@@ -111,4 +101,16 @@ h6 {
   padding-bottom: calc(
     var(--padding-main) + var(--height-bar-bottom)
   );
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
 }

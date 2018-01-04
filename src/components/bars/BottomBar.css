@@ -4,7 +4,6 @@
   display: flex;
   box-shadow: var(--box-shadow-main);
   justify-content: center;
-  background-color: var(--color-background-card);
   height: var(--height-bar-bottom);
   position: absolute;
 }

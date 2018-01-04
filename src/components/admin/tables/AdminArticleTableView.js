@@ -6,6 +6,10 @@ import * as api from 'managers/api.js'
 import './AdminArticleTableView.css'
 
 const NAME_VIEW_TABLE_ARTICLE_ADMIN = 'AdminArticleTableView';
+const NAME_TABLE_DATA = 'DataTable';
+const NAME_TABLE_DATA_HEADER = 'DataTableHeader';
+const NAME_TABLE_DATA_ROW = 'DataTableRow';
+const NAME_TABLE_DATA_CELL = 'DataTableCell';
 
 class AdminArticleTableView extends React.Component {
 
@@ -30,33 +34,55 @@ class AdminArticleTableView extends React.Component {
   render() {
     return (
       <div className={NAME_VIEW_TABLE_ARTICLE_ADMIN}>
-        <h1>{string.title()}</h1>
-        <table>
-          <thead>
-            <tr>
-                <th>{string.articleSlug()}</th>
-                <th>{string.articleTitle()}</th>
-                <th>{string.articleDetail()}</th>
-                <th>{string.articleContent()}</th>
-                <th>{string.articleUpdated()}</th>
-                <th>{string.articleCreated()}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              this.state.articleList.map(article => (
-                <tr key={article.id}>
-                  <td>{article.slug}</td>
-                  <td>{article.title}</td>
-                  <td>{article.detail}</td>
-                  <td>{article.content}</td>
-                  <td>{article.updated}</td>
-                  <td>{article.created}</td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
+        <h1>
+          {string.title()}
+        </h1>
+        <div className={NAME_TABLE_DATA}>
+          <div className={NAME_TABLE_DATA_HEADER}>
+            <span className={NAME_TABLE_DATA_CELL}>
+              {string.articleSlug()}
+            </span>
+            <span className={NAME_TABLE_DATA_CELL}>
+              {string.articleTitle()}
+            </span>
+            <span className={NAME_TABLE_DATA_CELL}>
+              {string.articleDetail()}
+            </span>
+            <span className={NAME_TABLE_DATA_CELL}>
+              {string.articleContent()}
+            </span>
+            <span className={NAME_TABLE_DATA_CELL}>
+              {string.articleUpdated()}
+            </span>
+            <span className={NAME_TABLE_DATA_CELL}>
+              {string.articleCreated()}
+            </span>
+          </div>
+          {
+            this.state.articleList.map(article => (
+              <div className={NAME_TABLE_DATA_ROW}>
+                <span className={NAME_TABLE_DATA_CELL}>
+                  {article.slug}
+                </span>
+                <span className={NAME_TABLE_DATA_CELL}>
+                  {article.title}
+                </span>
+                <span className={NAME_TABLE_DATA_CELL}>
+                  {article.detail}
+                </span>
+                <span className={NAME_TABLE_DATA_CELL}>
+                  {article.content}
+                </span>
+                <span className={NAME_TABLE_DATA_CELL}>
+                  {article.updated}
+                </span>
+                <span className={NAME_TABLE_DATA_CELL}>
+                  {article.created}
+                </span>
+              </div>
+            ))
+          }
+        </div>
       </div>
     )
   }

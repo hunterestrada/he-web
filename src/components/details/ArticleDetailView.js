@@ -27,7 +27,7 @@ class ArticleDetailView extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.article === undefined) {
+    if (this.state.article.length > 0) {
       return;
     }
     api.getArticle(

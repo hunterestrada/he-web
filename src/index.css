@@ -87,7 +87,7 @@ h6 {
   color: #fff;
   min-width: 100vw;
   min-height: calc(
-    100vh - var(--padding-main) - var(--height-bar-bottom)
+    100vh - var(--padding-main) - var(--padding-main) -  var(--height-bar-bottom)
   );
   position: relative;
 }
@@ -99,7 +99,7 @@ h6 {
   padding-left: var(--padding-main);
   padding-right: var(--padding-main);
   padding-bottom: calc(
-    var(--padding-main) + var(--height-bar-bottom)
+   var(--height-bar-bottom)
   );
 }
 

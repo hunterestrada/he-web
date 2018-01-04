@@ -13,7 +13,9 @@ const HTTP_STATUS = require('http-status-codes');
 const contentReader = new MARK.Parser();
 const contentWriter = new MARK.HtmlRenderer();
 
-const NAME_VIEW_DETAIL_ARTICLE = style.getContentComponentClassName(['ArticleDetailView']);
+const NAME_VIEW_DETAIL_ARTICLE = style.getContentComponentClassName([
+  'ArticleDetailView'
+]);
 const NAME_VIEW_TEXT = 'TextView';
 
 class ArticleDetailView extends React.Component {
@@ -64,19 +66,21 @@ class ArticleDetailView extends React.Component {
     );
     return (
       <div className={NAME_VIEW_DETAIL_ARTICLE}>
-        <h1 className={NAME_VIEW_TEXT}>
-          {this.state.article.title}
-        </h1>
-        <h3 className={NAME_VIEW_TEXT}>
-          {this.state.article.detail}
-        </h3>
-        <div className={NAME_VIEW_TEXT}
-          dangerouslySetInnerHTML={
-            {
-              __html: renderedContent
+        <div className={style.NAME_CARD}>
+          <h1 className={NAME_VIEW_TEXT}>
+            {this.state.article.title}
+          </h1>
+          <h3 className={NAME_VIEW_TEXT}>
+            {this.state.article.detail}
+          </h3>
+          <div className={NAME_VIEW_TEXT}
+            dangerouslySetInnerHTML={
+              {
+                __html: renderedContent
+              }
             }
-          }
-        />
+          />
+        </div>
       </div>
     );
   }

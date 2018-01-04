@@ -1,5 +1,6 @@
 
 .TopBar {
+  box-shadow: var(--box-shadow-main);
   height: var(--height-bar-top);
   justify-content: space-between;
   position: relative;
@@ -9,7 +10,6 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  margin: auto;
   max-width: var(--width-max-main);
 }
 

@@ -2,7 +2,6 @@
 .BottomBar {
   bottom: 0;
   display: flex;
-  box-shadow: var(--box-shadow-main);
   justify-content: center;
   height: var(--height-bar-bottom);
   position: absolute;

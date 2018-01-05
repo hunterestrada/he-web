@@ -7,7 +7,7 @@ import * as api from 'managers/api.js'
 import * as style from 'managers/style.js'
 import './AdminArticleTableView.css'
 
-const NAME_VIEW_TABLE_ARTICLE_ADMIN = style.getClassName([
+const NAME_VIEW_TABLE_ARTICLE_ADMIN = style.getExpandableContentComponentClassName([
   'AdminArticleTableView'
 ]);
 const NAME_TABLE_DATA = 'DataTable';

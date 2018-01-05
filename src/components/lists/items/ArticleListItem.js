@@ -14,12 +14,16 @@ const NAME_VIEW_TITLE = 'TitleView';
 const NAME_VIEW_DETAIL = 'DetailView';
 
 const ArticleListItem = ({route, title, detail}) => (
-  <div className={NAME_ITEM_LIST_ARTICLE}>
-    <Link  to={route}>
-      <h2 className={NAME_VIEW_TITLE}>{title}</h2>
-      <h3 className={NAME_VIEW_DETAIL}>{detail}</h3>
-    </Link>
-  </div>
+  <Link to={route}>
+    <div className={NAME_ITEM_LIST_ARTICLE}>
+      <h2 className={NAME_VIEW_TITLE}>
+        {title}
+      </h2>
+      <h3 className={NAME_VIEW_DETAIL}>
+        {detail}
+      </h3>
+    </div>
+  </Link>
 )
 
 export default ArticleListItem;

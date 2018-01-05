@@ -15,8 +15,7 @@ const ArticleListView = ({articleList}) => (
     <ul>
       {
         articleList.map(article =>
-          <ArticleListItem
-            key={article.id}
+          <ArticleListItem key={article.id}
             route={route.ARTICLE + (article.slug || article.id)}
             title={article.title}
             detail={article.detail}

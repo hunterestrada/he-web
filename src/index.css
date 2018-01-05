@@ -2,7 +2,7 @@
 :root {
   --color-background-main: #fff;
   --color-background-card: #fff;
-  --box-shadow-main: 0px 2px 8px rgba(0, 0, 0, 0.40);
+  --box-shadow-main: 0px 2px var(--height-shadow-main) rgba(0, 0, 0, 0.50);
   --color-text-main: #333;
   --font-family-mono: "Menlo", "Courier New", "Courier", monospace;
   --font-family-sans-serif: 'Open Sans', sans-serif;
@@ -13,9 +13,10 @@
   --font-size-4: 14px;
   --font-size-5: 12px;
   --font-size-6: 10px;
-  --height-bar-top: auto;
-  --height-bar-bottom: 62px;
+  --height-bar-top: 92px;
+  --height-bar-bottom: 64px;
   --height-icon-main: 32px;
+  --height-shadow-main: 8px;
   --margin-main: 16px;
   --padding-main: 16px;
   --width-max-main: 800px;
@@ -55,6 +56,10 @@ a {
   font-size: var(--font-size-3)
 }
 
+p {
+  line-height: 1.75;
+}
+
 h1 {
   font-size: var(--font-size-1);
 }
@@ -92,7 +97,6 @@ h6 {
   background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
   background-size: 400% 400%;
   color: #fff;
-  min-width: 100vw;
   min-height: calc(
     100vh - var(--padding-main) - var(--padding-main) -  var(--height-bar-bottom)
   );
@@ -102,10 +106,21 @@ h6 {
 .ContentComponent {
   margin: auto;
   max-width: var(--width-max-main);
-  padding-top: var(--padding-main);
+}
+
+.ExpandableContentComponent {
+  
+}
+
+.ContentComponent, .ExpandableContentComponent {
+  padding-top: calc(
+    var(--padding-main) + var(--height-shadow-main)
+  );
   padding-left: var(--padding-main);
   padding-right: var(--padding-main);
-  padding-bottom: var(--height-bar-bottom);
+  padding-bottom: calc(
+    var(--padding-main) + var(--height-shadow-main) + var(--height-bar-bottom)
+  );
 }
 
 @keyframes Gradient {

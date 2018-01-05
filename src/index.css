@@ -3,6 +3,7 @@
   --color-background-main: #fff;
   --color-background-card: #fff;
   --box-shadow-main: 0px 2px var(--height-shadow-main) rgba(0, 0, 0, 0.50);
+  --box-shadow-hover: 0px 2px calc(var(--height-shadow-main) * 2) rgba(0, 0, 0, 0.50);
   --color-text-main: #333;
   --font-family-mono: "Menlo", "Courier New", "Courier", monospace;
   --font-family-sans-serif: 'Open Sans', sans-serif;
@@ -90,6 +91,12 @@ h6 {
   box-shadow: var(--box-shadow-main);
   padding-top: var(--padding-main);
   padding-bottom: var(--padding-main);
+  transition: all .2s ease;
+}
+
+.Card:hover {
+  box-shadow: var(--box-shadow-hover);
+  transition: all .2s ease;
 }
 
 .Content {
@@ -109,7 +116,7 @@ h6 {
 }
 
 .ExpandableContentComponent {
-  
+
 }
 
 .ContentComponent, .ExpandableContentComponent {

@@ -10,5 +10,5 @@ export function getClassName(nameList) {
 }
 
 export function getContentComponentClassName(otherNameList) {
-  return getClassName([NAME_CONTENT_COMPONENT].concat(otherNameList))
+  return getClassName(otherNameList.concat([NAME_CONTENT_COMPONENT]))
 }

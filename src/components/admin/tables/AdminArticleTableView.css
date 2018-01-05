@@ -1,8 +1,23 @@
 
 .AdminArticleTableView {
-
+  max-width: none;
 }
 
-.DataCell {
+.DataTable {
+  display: table;
+}
+
+.DataTableHeader {
+  display: table-header-group;
+  font-weight: bold;
+}
+
+.DataTableRow {
+  display: table-row;
+}
+
+.DataTableCell {
+  display: table-cell;
   font-family: var(--font-family-mono);
+  padding: var(--padding-main);
 }

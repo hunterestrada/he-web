@@ -45,13 +45,19 @@ export const getArticleList = () => {
   )
 }
 
-export const putArticle = (id) => {
+export const postArticle = (data) => {
   return fetchJSON(
     ENDPOINT_ARTICLE_LIST,
+    METHOD_POST,
+    data
+  )
+}
+
+export const putArticle = (id, data) => {
+  return fetchJSON(
+    ENDPOINT_ARTICLE_LIST + id,
     METHOD_PUT,
-    {
-      id: id
-    }
+    data
   )
 }
 

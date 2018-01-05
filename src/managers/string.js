@@ -46,6 +46,15 @@ export class AdminArticleTableView {
   }
 }
 
+export class AdminArticleChangeForm {
+  static create() {
+    return "Create";
+  }
+  static update() {
+    return "Update";
+  }
+}
+
 export class AdminSignInView {
   static title() {
     return "Sign In";

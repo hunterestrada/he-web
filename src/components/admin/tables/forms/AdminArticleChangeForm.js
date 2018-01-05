@@ -47,10 +47,9 @@ class AdminArticleChangeForm extends React.Component {
           </input>
         </span>
         <span className={NAME_TABLE_DATA_CELL}>
-          <input type={form.TYPE_INPUT_TEXT}
-            value={this.state.content}
+          <textarea value={this.state.content}
             onChange={this.onUserEditContent}>
-          </input>
+          </textarea>
         </span>
         <span className={NAME_TABLE_DATA_CELL}>
           {

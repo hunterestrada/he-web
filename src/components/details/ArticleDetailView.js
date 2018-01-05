@@ -1,17 +1,14 @@
 
 import React from 'react';
+import BadRouteView from 'components/errors/BadRouteView'
 
 import * as api from 'managers/api.js'
 import * as style from 'managers/style.js'
-import * as type from 'managers/type.js'
-import BadRouteView from 'components/errors/BadRouteView'
+import * as text from 'managers/text.js'
+
 import './ArticleDetailView.css'
 
-const MARK = require('commonmark');
 const HTTP_STATUS = require('http-status-codes');
-
-const contentReader = new MARK.Parser();
-const contentWriter = new MARK.HtmlRenderer();
 
 const NAME_VIEW_DETAIL_ARTICLE = style.getContentComponentClassName([
   'ArticleDetailView'
@@ -57,13 +54,6 @@ class ArticleDetailView extends React.Component {
     if (this.state.isArticleMissing) {
       return <BadRouteView/>
     }
-    const rawContent = this.state.article.content;
-    const parsedContent = contentReader.parse(
-      type.isString(rawContent) ? rawContent : ''
-    );
-    const renderedContent = contentWriter.render(
-      parsedContent
-    );
     return (
       <div className={NAME_VIEW_DETAIL_ARTICLE}>
         <div className={style.NAME_CARD}>
@@ -76,7 +66,7 @@ class ArticleDetailView extends React.Component {
           <div className={NAME_VIEW_TEXT}
             dangerouslySetInnerHTML={
               {
-                __html: renderedContent
+                __html: text.getHTML(this.state.article.content)
               }
             }
           />

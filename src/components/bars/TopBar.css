@@ -17,6 +17,7 @@
 
 .SmallLink, .LargeLink {
   font-weight: bold;
+  font-family: var(--font-family-sans-serif);
   padding-left: var(--padding-main);
   padding-right: var(--padding-main);
   padding-top: var(--padding-main);

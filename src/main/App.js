@@ -34,8 +34,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    api.getArticleList().then(
-      json => this.setState({
+    api.getArticleList().then(json =>
+      this.setState({
         articleList: json.data
       })
     )

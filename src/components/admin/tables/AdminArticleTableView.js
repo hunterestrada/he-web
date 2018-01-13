@@ -21,9 +21,6 @@ class AdminArticleTableView extends React.Component {
     this.state = {
       articleList: props.articleList || []
     };
-    this.onUserCreateArticle = this.onUserCreateArticle.bind(this);
-    this.onUserUpdateArticle = this.onUserUpdateArticle.bind(this);
-    this.onUserDeleteArticle = this.onUserDeleteArticle.bind(this);
   }
 
   componentDidMount() {
@@ -65,11 +62,14 @@ class AdminArticleTableView extends React.Component {
                 {string.articleCreated()}
               </span>
             </div>
-            <AdminArticleChangeForm/>
+            <AdminArticleChangeForm
+              onUserCreateArticle={this.onUserCreateArticle}/>
             {
               this.state.articleList.map(article =>
-                <AdminArticleChangeForm key={article.id}
-                  article={article}/>
+                <AdminArticleChangeForm
+                  key={article.id}
+                  article={article}
+                  onUserRemoveArticle={this.onUserRemoveArticle}/>
               )
             }
           </div>
@@ -78,19 +78,20 @@ class AdminArticleTableView extends React.Component {
     )
   }
 
-  onUserCreateArticle(event) {
-    event.preventDefault();
-    console.log(event);
+  onUserCreateArticle = (value) => {
+    const newArticleList = [value].concat(this.state.articleList);
+    this.setState({
+      articleList: newArticleList
+    });
   }
 
-  onUserUpdateArticle(event) {
-    event.preventDefault();
-    console.log(event);
-  }
-
-  onUserDeleteArticle(event) {
-    event.preventDefault();
-    console.log(event);
+  onUserRemoveArticle = (value) => {
+    const newArticleList = this.state.articleList.filter(article =>
+      value.id !== article.id
+    );
+    this.setState({
+      articleList: newArticleList
+    });
   }
 
 }

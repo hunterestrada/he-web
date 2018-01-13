@@ -15,8 +15,12 @@ class AdminArticleChangeForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.article = props.article || {};
-    this.state = {
+    this.article = this.props.article || {};
+    this.state = this.getCleanState();
+  }
+
+  getCleanState = () => {
+    return {
       slug: this.article.slug || '',
       title: this.article.title || '',
       detail: this.article.detail || '',
@@ -63,12 +67,51 @@ class AdminArticleChangeForm extends React.Component {
             .getFormatted(this.article.created)
         }
         </span>
-        <input type={form.TYPE_INPUT_SUBMIT}
-          value={
-            (this.article.id) ?
-              string.update() : string.create()
-          }/>
+        {this.getUpdateArticleButton()}
+        {
+          (this.article.id) ?
+            this.getRemoveArticleButton() : this.getCreateArticleButton()
+        }
       </form>
+    )
+  }
+
+  getCreateArticleButton = () => {
+    if (this.article.id) {
+      return (<span className={NAME_TABLE_DATA_CELL}/>);
+    }
+    return (
+      <span className={NAME_TABLE_DATA_CELL}>
+        <button onClick={this.onUserTapCreateArticle}>
+          {string.create()}
+        </button>
+      </span>
+    )
+  }
+
+  getUpdateArticleButton = () => {
+    if (!this.article.id) {
+      return (<span className={NAME_TABLE_DATA_CELL}/>);
+    }
+    return (
+      <span className={NAME_TABLE_DATA_CELL}>
+        <button onClick={this.onUserTapUpdateArticle}>
+          {string.update()}
+        </button>
+      </span>
+    )
+  }
+
+  getRemoveArticleButton = () => {
+    if (!this.article.id) {
+      return (<span className={NAME_TABLE_DATA_CELL}/>);
+    }
+    return (
+      <span className={NAME_TABLE_DATA_CELL}>
+        <button onClick={this.onUserTapRemoveArticle}>
+          {string.remove()}
+        </button>
+      </span>
     )
   }
 
@@ -99,26 +142,45 @@ class AdminArticleChangeForm extends React.Component {
     });
   }
 
-  onUserTapSubmit = (event) => {
+  onUserTapCreateArticle = (event) => {
+    event.preventDefault()
+    api.postArticle(
+      this.state
+    ).then(json => {
+      this.props.onUserCreateArticle(json.data)
+      this.setState(this.getCleanState())
+    }).catch(error => {
+      if (error.statusText) {
+        alert(error.statusText)
+      }
+    });
+  }
+
+  onUserTapUpdateArticle = (event) => {
     event.preventDefault();
-    console.log(this.state);
-    if (this.article.id) {
-      api.putArticle(
-        this.article.id, this.state
-      ).then(value =>
-        console.log(value)
-      ).catch(error =>
-        console.log(error)
-      )
-    } else {
-      api.postArticle(
-        this.state
-      ).then(value =>
-        console.log(value)
-      ).catch(error =>
-        console.log(error)
-      )
-    }
+    api.putArticle(
+      this.article.id, this.state
+    ).then(json => {
+      this.article = json.data
+      this.setState(this.getCleanState());
+    }).catch(error => {
+      if (error.statusText) {
+        alert(error.statusText);
+      }
+    });
+  }
+
+  onUserTapRemoveArticle = (event) => {
+    event.preventDefault();
+    api.deleteArticle(
+      this.article.id
+    ).then(json =>
+      this.props.onUserRemoveArticle(this.article)
+    ).catch(error => {
+      if (error.statusText) {
+        alert(error.statusText);
+      }
+    })
   }
 
   static getFormatted(dateText) {

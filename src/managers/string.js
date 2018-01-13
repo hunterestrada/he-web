@@ -53,6 +53,9 @@ export class AdminArticleChangeForm {
   static update() {
     return "Update";
   }
+  static remove() {
+    return "Remove";
+  }
 }
 
 export class AdminSignInView {

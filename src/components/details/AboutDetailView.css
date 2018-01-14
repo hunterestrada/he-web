@@ -3,12 +3,26 @@
 
 }
 
-.TextView {
+.AboutDetailView .ImageLayout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.AboutDetailView .ImageView {
+  width: 100%;
+  max-width: calc(var(--width-max-main) * 0.75);
+  margin: auto;
+}
+
+.AboutDetailView .TextView {
+  display: flex;
+  justify-content: center;
   padding-left: var(--padding-main);
   padding-right: var(--padding-main);
 }
 
-.LineView {
+.AboutDetailView .LineView {
   margin-left: var(--margin-main);
   margin-right: var(--margin-main);
 }

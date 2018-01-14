@@ -6,24 +6,24 @@
   );
 }
 
-.TitleView {
+.ArticleListItem .TitleView {
 
 }
 
-.DetailView {
+.ArticleListItem .DetailView {
 
 }
 
-.DateView {
+.ArticleListItem .DateView {
 
 }
 
-.LineView {
+.ArticleListItem .LineView {
   margin-left: var(--margin-main);
   margin-right: var(--margin-main);
 }
 
-.TitleView, .DetailView, .DateView {
+.ArticleListItem .TitleView, .DetailView, .DateView {
   padding-left: var(--padding-main);
   padding-right: var(--padding-main);
 }

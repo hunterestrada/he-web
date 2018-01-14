@@ -5,12 +5,40 @@
   justify-content: center;
 }
 
-.TextView {
+.ArticleDetailView .TextView {
   padding-left: var(--padding-main);
   padding-right: var(--padding-main);
 }
 
-.LineView {
+.ArticleDetailView .ContentView {
+
+}
+
+.ArticleDetailView .LineView {
   margin-left: var(--margin-main);
   margin-right: var(--margin-main);
+}
+
+.ArticleDetailView .ContentView > h1 {
+  font-size: var(--font-size-1-small);
+}
+
+.ArticleDetailView .ContentView > h2 {
+  font-size: var(--font-size-2-small);
+}
+
+.ArticleDetailView .ContentView > h3 {
+  font-size: var(--font-size-3-small);
+}
+
+.ArticleDetailView .ContentView > h4 {
+  font-size: var(--font-size-4-small);
+}
+
+.ArticleDetailView .ContentView > h5 {
+  font-size: var(--font-size-5-small);
+}
+
+.ArticleDetailView .ContentView > h6 {
+  font-size: var(--font-size-6-small);
 }

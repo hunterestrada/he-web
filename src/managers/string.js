@@ -1,6 +1,7 @@
 
 import * as type from 'managers/type.js'
 
+import hunterEstradaImage from 'assets/img/hunter_estrada.jpg'
 import gitHubImage from 'assets/img/git_hub.png'
 import instagramImage from 'assets/img/instagram.png'
 import linkedInImage from 'assets/img/linked_in.png'
@@ -64,6 +65,12 @@ export class AboutDetailView {
   }
   static emailAddress() {
     return "hello@hunterestrada.com";
+  }
+  static imageLink() {
+    return hunterEstradaImage;
+  }
+  static imageTitle() {
+    return "Hunter Estrada";
   }
 }
 
@@ -139,7 +146,7 @@ export class AdminCredentialForm {
 export class ArticleDetailView extends ArticleViewDateFormatting {
 
   static prefixFormattedUpdatedDate() {
-    return "Edited: ";
+    return "Last Edit: ";
   }
 
   static getFormattedUpdatedDate(value) {

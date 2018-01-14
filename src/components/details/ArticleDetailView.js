@@ -18,6 +18,9 @@ const NAME_VIEW_LINE = style.getClassName([
   style.NAME_LINE_HORIZONTAL, 'LineView'
 ]);
 const NAME_VIEW_TEXT = 'TextView';
+const NAME_VIEW_CONTENT = style.getClassName([
+  NAME_VIEW_TEXT, 'ContentView'
+]);
 
 class ArticleDetailView extends React.Component {
 
@@ -67,7 +70,7 @@ class ArticleDetailView extends React.Component {
             {this.state.article.detail}
           </h3>
           <div className={NAME_VIEW_LINE} />
-          <div className={NAME_VIEW_TEXT}
+          <div className={NAME_VIEW_CONTENT}
             dangerouslySetInnerHTML={
               {
                 __html: text.getHTML(this.state.article.content)

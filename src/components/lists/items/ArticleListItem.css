@@ -1,14 +1,29 @@
 
 .ArticleListItem {
-  
+  margin-bottom: calc(
+    var(--margin-main) +
+    var(--height-shadow-main)
+  );
 }
 
 .TitleView {
-  padding-left: var(--padding-main);
-  padding-right: var(--padding-main);
+
 }
 
 .DetailView {
+
+}
+
+.DateView {
+
+}
+
+.LineView {
+  margin-left: var(--margin-main);
+  margin-right: var(--margin-main);
+}
+
+.TitleView, .DetailView, .DateView {
   padding-left: var(--padding-main);
   padding-right: var(--padding-main);
 }

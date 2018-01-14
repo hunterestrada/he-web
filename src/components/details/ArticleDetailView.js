@@ -5,13 +5,17 @@ import BadRouteView from 'components/errors/BadRouteView'
 import * as api from 'managers/api.js'
 import * as style from 'managers/style.js'
 import * as text from 'managers/text.js'
+import { ArticleDetailView as string } from 'managers/string.js'
 
 import './ArticleDetailView.css'
 
-const HTTP_STATUS = require('http-status-codes');
+const HTTPStatusCode = require('http-status-codes');
 
 const NAME_VIEW_DETAIL_ARTICLE = style.getContentComponentClassName([
   'ArticleDetailView'
+]);
+const NAME_VIEW_LINE = style.getClassName([
+  style.NAME_LINE_HORIZONTAL, 'LineView'
 ]);
 const NAME_VIEW_TEXT = 'TextView';
 
@@ -37,7 +41,7 @@ class ArticleDetailView extends React.Component {
       })
     }).catch(error => {
       switch (error.status) {
-        case HTTP_STATUS.NOT_FOUND:
+        case HTTPStatusCode.NOT_FOUND:
           this.setState({
             isArticleMissing: true
           });
@@ -46,7 +50,6 @@ class ArticleDetailView extends React.Component {
           console.log(error.status);
           break;
       }
-
     });
   }
 
@@ -63,6 +66,7 @@ class ArticleDetailView extends React.Component {
           <h3 className={NAME_VIEW_TEXT}>
             {this.state.article.detail}
           </h3>
+          <div className={NAME_VIEW_LINE} />
           <div className={NAME_VIEW_TEXT}
             dangerouslySetInnerHTML={
               {
@@ -70,8 +74,32 @@ class ArticleDetailView extends React.Component {
               }
             }
           />
+          <div className={NAME_VIEW_LINE}/>
+          {this.getDateView()}
         </div>
       </div>
+    );
+  }
+
+  getDateView = () => {
+    const created = this.state.article.created;
+    const updated = this.state.article.updated;
+    if (created !== updated) {
+      return (
+        <div>
+          <h5 className={NAME_VIEW_TEXT}>
+            {string.getFormattedCreatedDate(this.state.article.created)}
+          </h5>
+          <h5 className={NAME_VIEW_TEXT}>
+            {string.getFormattedUpdatedDate(this.state.article.updated)}
+          </h5>
+        </div>
+      );
+    }
+    return (
+      <h5 className={NAME_VIEW_TEXT}>
+        {string.getFormattedCreatedDate(this.state.article.created)}
+      </h5>
     );
   }
 

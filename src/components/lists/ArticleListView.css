@@ -2,3 +2,7 @@
 .ArticleListView {
   justify-content: center;
 }
+
+.ContentComponent.ArticleListView {
+  padding-bottom: var(--height-bar-bottom);
+}

@@ -2,6 +2,7 @@
 :root {
   --color-background-main: #fff;
   --color-background-card: #fff;
+  --color-background-line: rgba(0, 0, 0, 0.25);
   --box-shadow-main: 0px 2px var(--height-shadow-main) rgba(0, 0, 0, 0.50);
   --box-shadow-hover: 0px 2px calc(var(--height-shadow-main) * 2) rgba(0, 0, 0, 0.50);
   --color-text-main: #333;
@@ -19,13 +20,15 @@
   --height-icon-main: 32px;
   --height-shadow-main: 8px;
   --margin-main: 16px;
+  --margin-line: 8px;
   --padding-main: 16px;
+  --size-line: 1px;
   --width-max-main: 800px;
 }
 
 html, body, header, footer, table, div, ol, ul {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
 }
 
 th, tr, td {
@@ -42,14 +45,15 @@ h1, h2, h3, h4, h5, h6, a, p, span {
   color: var(--color-text-main);
   text-decoration: none;
   padding: 0px;
-  margin: 8px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
-h1, h2, h3, h4, h5, h6, span {
+a, h1, h2, h3, h4, h5, h6, span {
   font-family: var(--font-family-sans-serif);
 }
 
-a, p {
+p {
   font-family: var(--font-family-serif)
 }
 
@@ -99,13 +103,32 @@ h6 {
   transition: all .2s ease;
 }
 
+.HorizontalLine {
+  height: var(--size-line);
+  margin-bottom: var(--margin-line);
+  margin-top: var(--margin-line);
+}
+
+.VerticalLine {
+  width: var(--size-line);
+  margin-left: var(--margin-line);
+  margin-right: var(--margin-line);
+}
+
+.HorizontalLine, .VerticalLine {
+  background-color: var(--color-background-line);
+}
+
 .Content {
   animation: Gradient 15s ease infinite;
   background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
   background-size: 400% 400%;
   color: #fff;
   min-height: calc(
-    100vh - var(--padding-main) - var(--padding-main) -  var(--height-bar-bottom)
+    100vh -
+    var(--padding-main) -
+    var(--padding-main) -
+    var(--height-bar-bottom)
   );
   position: relative;
 }
@@ -121,12 +144,15 @@ h6 {
 
 .ContentComponent, .ExpandableContentComponent {
   padding-top: calc(
-    var(--padding-main) + var(--height-shadow-main)
+    var(--padding-main) +
+    var(--height-shadow-main)
   );
   padding-left: var(--padding-main);
   padding-right: var(--padding-main);
   padding-bottom: calc(
-    var(--padding-main) + var(--height-shadow-main) + var(--height-bar-bottom)
+    var(--padding-main) +
+    var(--height-shadow-main) +
+    var(--height-bar-bottom)
   );
 }
 

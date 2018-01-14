@@ -1,18 +1,63 @@
 
+import * as type from 'managers/type.js'
+
 import gitHubImage from 'assets/img/git_hub.png'
 import instagramImage from 'assets/img/instagram.png'
 import linkedInImage from 'assets/img/linked_in.png'
 import twitterImage from 'assets/img/twitter.png'
+
+const Moment = require('moment');
+
+const FORMAT_VIEW_DATE = 'MMMM D, YYYY [at] h:MM A [on] dddd';
+
+// Private
+
+class DataDateFormatting {
+  static getFormattedDate(value) {
+    if (!type.isString(value)) {
+      return "";
+    }
+    return new Date(value).toLocaleString();
+  }
+}
+
+class ViewDateFormatting {
+
+  static getFormattedViewDate(value) {
+    if (!type.isString(value)) {
+      return "";
+    }
+    return Moment(value).format(FORMAT_VIEW_DATE);
+  }
+
+}
+
+class ArticleViewDateFormatting extends ViewDateFormatting {
+
+  static prefixFormattedCreatedDate() {
+    return "Posted: "
+  }
+
+  static getFormattedCreatedDate(value) {
+    return (
+      this.prefixFormattedCreatedDate() +
+      this.getFormattedViewDate(value)
+    );
+  }
+
+}
+
+// Exposed
 
 export class AboutDetailView {
   static title() {
     return "Hi, I'm Hunter.";
   }
   static subtitle() {
-    return "I make things and say stuff."
+    return "I build things and say stuff."
   }
   static detail() {
-    return "If you want to know more, let's connect.";
+    return "Want to know more? Let's connect.";
   }
   static emailLink() {
     return "mailto:" + this.emailAddress() + "?Subject=Hey man";
@@ -46,7 +91,7 @@ export class AdminArticleTableView {
   }
 }
 
-export class AdminArticleChangeForm {
+export class AdminArticleChangeForm extends DataDateFormatting {
   static create() {
     return "Create";
   }
@@ -89,6 +134,25 @@ export class AdminCredentialForm {
   static invalidPassword() {
     return "Invalid password"
   }
+}
+
+export class ArticleDetailView extends ArticleViewDateFormatting {
+
+  static prefixFormattedUpdatedDate() {
+    return "Edited: ";
+  }
+
+  static getFormattedUpdatedDate(value) {
+    return (
+      this.prefixFormattedUpdatedDate() +
+      this.getFormattedViewDate(value)
+    )
+  }
+
+}
+
+export class ArticleListView extends ArticleViewDateFormatting {
+
 }
 
 export class BadRouteView {

@@ -3,7 +3,6 @@ import React from 'react';
 
 import * as api from 'managers/api.js'
 import * as form from 'managers/form.js'
-import * as type from 'managers/type.js'
 import { AdminArticleChangeForm as string } from 'managers/string.js'
 
 import './AdminArticleChangeForm.css'
@@ -56,16 +55,10 @@ class AdminArticleChangeForm extends React.Component {
           </textarea>
         </span>
         <span className={NAME_TABLE_DATA_CELL}>
-          {
-            AdminArticleChangeForm
-              .getFormatted(this.article.updated)
-          }
+          {string.getFormattedDate(this.article.updated)}
         </span>
         <span className={NAME_TABLE_DATA_CELL}>
-        {
-          AdminArticleChangeForm
-            .getFormatted(this.article.created)
-        }
+          {string.getFormattedDate(this.article.created)}
         </span>
         {this.getUpdateArticleButton()}
         {
@@ -181,13 +174,6 @@ class AdminArticleChangeForm extends React.Component {
         alert(error.statusText);
       }
     })
-  }
-
-  static getFormatted(dateText) {
-    if (!type.isString(dateText)) {
-      return "";
-    }
-    return new Date(dateText).toLocaleString();
   }
 
 }

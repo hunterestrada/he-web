@@ -3,7 +3,12 @@
 
 }
 
-.TextComponent {
+.TextView {
   padding-left: var(--padding-main);
   padding-right: var(--padding-main);
+}
+
+.LineView {
+  margin-left: var(--margin-main);
+  margin-right: var(--margin-main);
 }

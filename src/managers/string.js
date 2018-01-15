@@ -52,7 +52,7 @@ class ArticleViewDateFormatting extends ViewDateFormatting {
 
 export class AboutDetailView {
   static title() {
-    return "Hi, I'm Hunter.";
+    return "I'm Hunter.";
   }
   static subtitle() {
     return "I build things and say stuff."
@@ -122,12 +122,15 @@ export class AdminSignUpView {
   }
 }
 
-export class AdminCredentialForm {
+export class AdminAuthenticationForm {
   static emailPlaceholder() {
     return "Email";
   }
   static passwordPlaceholder() {
     return "Password";
+  }
+  static repeatedPasswordPlaceholder() {
+    return "Password (confirm)"
   }
   static submit() {
     return "Submit";
@@ -139,7 +142,10 @@ export class AdminCredentialForm {
     return "Invalid email";
   }
   static invalidPassword() {
-    return "Invalid password"
+    return "Invalid password";
+  }
+  static invalidPasswordMatch() {
+    return "Invalid password match";
   }
 }
 

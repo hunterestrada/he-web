@@ -3,6 +3,7 @@ export const METHOD_GET = 'GET';
 export const METHOD_POST = 'POST';
 export const TYPE_BUTTON = 'button';
 export const TYPE_INPUT_EMAIL = 'email';
+export const TYPE_INPUT_HIDDEN = 'hidden';
 export const TYPE_INPUT_PASSWORD = 'password';
 export const TYPE_INPUT_TEXT = 'text';
 export const TYPE_INPUT_SUBMIT = 'submit';

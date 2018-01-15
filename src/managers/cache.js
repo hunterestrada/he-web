@@ -3,16 +3,18 @@ import * as type from 'managers/type.js';
 
 const KEY_ARTICLE = 'key_article_';
 const KEY_ARTICLE_LIST = 'key_list_article';
-const KEY_IS_AUTHENTICATED = 'key_is_authenticated';
+const KEY_IS_AUTHENTICATED_ADMIN = 'key_is_admin_authenticated';
 
 // isAuthenticated
 
-export const setIsAuthenticated = (value) => {
-  return sessionStorage.setItem(KEY_IS_AUTHENTICATED, value);
+export const setIsAdminAuthenticated = (value) => {
+  const item = JSON.stringify(value);
+  return sessionStorage.setItem(KEY_IS_AUTHENTICATED_ADMIN, item);
 }
 
-export const getIsAuthenticated = (value) => {
-  return sessionStorage.getItem(KEY_IS_AUTHENTICATED) || false;
+export const getIsAdminAuthenticated = (value) => {
+  const item = sessionStorage.getItem(KEY_IS_AUTHENTICATED_ADMIN)
+  return JSON.parse(item) || false;
 }
 
 // articles

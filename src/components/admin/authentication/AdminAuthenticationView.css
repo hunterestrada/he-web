@@ -1,0 +1,9 @@
+
+.AdminAuthenticationView {
+
+}
+
+.AdminAuthenticationView .ContentView {
+  padding-left: var(--padding-main);
+  padding-right: var(--padding-main);
+}

@@ -92,7 +92,10 @@ export const postSignInToken = (email, password) => {
       email: email,
       password: password
     }
-  );
+  ).then(json => {
+    cache.setIsAdminAuthenticated(true);
+    return json;
+  });
 }
 
 export const postSignUpToken = (email, password) => {
@@ -103,5 +106,8 @@ export const postSignUpToken = (email, password) => {
       email: email,
       password: password
     }
-  );
+  ).then(json => {
+    cache.setIsAdminAuthenticated(true);
+    return json;
+  });
 }

@@ -1,9 +1,12 @@
 
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 import AdminArticleChangeForm from './forms/AdminArticleChangeForm'
 
 import { AdminArticleTableView as string } from 'managers/string.js'
 import * as api from 'managers/api.js'
+import * as cache from 'managers/cache.js'
+import * as route from 'managers/route.js'
 import * as style from 'managers/style.js'
 import './AdminArticleTableView.css'
 
@@ -19,7 +22,7 @@ class AdminArticleTableView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      articleList: props.articleList || []
+      articleList: []
     };
   }
 
@@ -35,6 +38,10 @@ class AdminArticleTableView extends React.Component {
   }
 
   render() {
+    console.log('TABLEVIEW', cache.getIsAdminAuthenticated());
+    if (!cache.getIsAdminAuthenticated()) {
+      return <Redirect to={route.ADMIN_SIGN_IN}/>
+    }
     return (
       <div className={NAME_VIEW_TABLE_ARTICLE_ADMIN}>
         <div className={style.NAME_CARD}>

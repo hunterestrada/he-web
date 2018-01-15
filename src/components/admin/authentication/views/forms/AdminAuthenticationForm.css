@@ -1,0 +1,9 @@
+
+.AdminAuthenticationForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.AdminAuthenticationForm .CredentialTextView {
+  font-size: var(--font-size-3);
+}

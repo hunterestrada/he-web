@@ -1,4 +1,6 @@
 
+import * as cache from 'managers/cache.js'
+
 const HEADERS = new Headers({
   'Accept': 'application/json',
   'Content-Type': 'application/json'
@@ -37,14 +39,20 @@ export const getArticleList = () => {
   return fetchJSON(
     ENDPOINT_ARTICLE_LIST,
     METHOD_GET
-  );
+  ).then(json => {
+    cache.setArticleList(json.data);
+    return json;
+  });
 }
 
 export const getArticle = (id) => {
   return fetchJSON(
     ENDPOINT_ARTICLE_LIST + id,
     METHOD_GET
-  );
+  ).then(json => {
+    cache.setArticle(json.data);
+    return json;
+  });
 }
 
 export const postArticle = (data) => {
@@ -52,7 +60,10 @@ export const postArticle = (data) => {
     ENDPOINT_ARTICLE_LIST,
     METHOD_POST,
     data
-  );
+  ).then(json => {
+    cache.setArticle(json.data);
+    return json;
+  });
 }
 
 export const putArticle = (id, data) => {
@@ -60,7 +71,10 @@ export const putArticle = (id, data) => {
     ENDPOINT_ARTICLE_LIST + id,
     METHOD_PUT,
     data
-  );
+  ).then(json => {
+    cache.setArticle(json.data);
+    return json;
+  });
 }
 
 export const deleteArticle = (id) => {

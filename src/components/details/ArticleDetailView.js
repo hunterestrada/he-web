@@ -3,6 +3,7 @@ import React from 'react';
 import BadRouteView from 'components/errors/BadRouteView'
 
 import * as api from 'managers/api.js'
+import * as cache from 'managers/cache.js'
 import * as style from 'managers/style.js'
 import * as text from 'managers/text.js'
 import { ArticleDetailView as string } from 'managers/string.js'
@@ -28,7 +29,7 @@ class ArticleDetailView extends React.Component {
     super(props);
     this.state = {
       isArticleMissing: false,
-      article: props.article || {}
+      article: cache.getArticle(this.props.articleKey)
     };
   }
 
@@ -37,7 +38,7 @@ class ArticleDetailView extends React.Component {
       return;
     }
     api.getArticle(
-      this.props.articleId
+      this.props.articleKey
     ).then(json => {
       this.setState({
         article: json.data

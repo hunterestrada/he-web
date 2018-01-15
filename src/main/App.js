@@ -33,14 +33,6 @@ class App extends React.Component {
     this.attemptSigningInUser = this.attemptSigningInUser.bind(this);
   }
 
-  componentDidMount() {
-    api.getArticleList().then(json =>
-      this.setState({
-        articleList: json.data
-      })
-    )
-  }
-
   render() {
     return (
         <div className={NAME_APP}>
@@ -49,13 +41,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path={route.ABOUT}
                 component={AboutDetailView}/>
-              <Route exact path={route.ADMIN_ARTICLE_TABLE}
-                render={
-                  props => (
-                    <AdminArticleTableView props
-                      articleList={this.state.articleList}/>
-                  )
-                }/>
+              <Route exact path={route.ADMIN_ARTICLE_TABLE}/>
               <Route exact path={route.ADMIN}
                 render={
                   props => {
@@ -80,18 +66,12 @@ class App extends React.Component {
               <Route exact path={route.ADMIN_SIGN_UP}
                 component={AdminSignUpView}/>
               <Route exact path={route.ARTICLES}
-                render={
-                  props => (
-                    <ArticleListView props
-                      articleList={this.state.articleList}/>
-                  )
-                }/>
-              <Route exact path={route.ARTICLE + route.PATH_ID_ARTICLE}
+                component={ArticleListView}/>
+              <Route exact path={route.ARTICLE + route.PATH_KEY_ARTICLE}
                 render={
                   props => (
                       <ArticleDetailView props
-                        articleId={props.match.params.article_id}
-                        article={{}}/>
+                        articleKey={props.match.params.articleKey}/>
                   )
                 }/>
               <Route component={BadRouteView}/>

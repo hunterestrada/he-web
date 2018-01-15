@@ -1,7 +1,7 @@
 
 const INDEX = '/';
 
-export const PATH_ID_ARTICLE = ':article_id';
+export const PATH_KEY_ARTICLE = ':articleKey';
 
 export const ABOUT = INDEX + 'about';
 export const ADMIN = INDEX + 'admin/';

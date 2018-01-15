@@ -1,37 +1,41 @@
 
 .TopBar {
+  display: flex;
+  justify-content: space-around;
   box-shadow: var(--box-shadow-main);
   height: var(--height-bar-top);
-  justify-content: space-between;
   position: relative;
 }
 
-.TopBarContent {
+.TopBar .ContentLayout {
   display: flex;
+  width: 100%;
+  padding-left: var(--padding-main);
+  padding-right: var(--padding-main);
+  max-width: var(--width-max-main);
+}
+
+.TopBar .ContentView {
+  display: flex;
+  width: 100%;
   align-items: baseline;
   justify-content: space-between;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: var(--width-max-main);
 }
 
 .SmallLink, .LargeLink {
   font-weight: bold;
   font-family: var(--font-family-sans-serif);
-  padding-left: var(--padding-main);
-  padding-right: var(--padding-main);
-  padding-top: var(--padding-main);
-  padding-bottom: var(--padding-main);
+  padding: var(--padding-main);
   text-align: center;
   text-decoration: none;
 }
 
-.SmallLink {
+.TopBar .SmallLink {
   font-size: var(--font-size-3);
-  right: 0;
+  right: var(--padding-main);
 }
 
-.LargeLink {
-  left: 0;
+.TopBar .LargeLink {
+  left: var(--padding-main);
   font-size: var(--font-size-1);
 }

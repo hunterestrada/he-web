@@ -41,7 +41,8 @@ class App extends React.Component {
             <Switch>
               <Route exact path={route.ABOUT}
                 component={AboutDetailView}/>
-              <Route exact path={route.ADMIN_ARTICLE_TABLE}/>
+              <Route exact path={route.ADMIN_ARTICLE_TABLE}
+                component={AdminArticleTableView}/>
               <Route exact path={route.ADMIN}
                 render={
                   props => {

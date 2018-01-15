@@ -15,17 +15,20 @@ const NAME_BAR_TOP = style.getClassName([
 ]);
 const NAME_LINK_LARGE = 'LargeLink';
 const NAME_LINK_SMALL = 'SmallLink';
-const NAME_CONTENT_BAR_TOP = 'TopBarContent'
+const NAME_LAYOUT_CONTENT = 'ContentLayout';
+const NAME_VIEW_CONTENT = 'ContentView';
 
 const TopBar = () => (
   <header className={NAME_BAR_TOP}>
-    <div className={NAME_CONTENT_BAR_TOP}>
-      <Link className={NAME_LINK_LARGE} to={route.FEED}>
-        {string.feed()}
-      </Link>
-      <Link className={NAME_LINK_SMALL} to={route.ABOUT}>
-        {string.about()}
-      </Link>
+    <div className={NAME_LAYOUT_CONTENT}>
+      <div className={NAME_VIEW_CONTENT}>
+        <Link className={NAME_LINK_LARGE} to={route.FEED}>
+          {string.feed()}
+        </Link>
+        <Link className={NAME_LINK_SMALL} to={route.ABOUT}>
+          {string.about()}
+        </Link>
+      </div>
     </div>
   </header>
 )

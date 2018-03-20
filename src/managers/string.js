@@ -50,6 +50,10 @@ class ArticleViewDateFormatting extends ViewDateFormatting {
 
 // Exposed
 
+export const isEmpty = (value) => {
+  return !type.isString(value) || value === '';
+}
+
 export class AboutDetailView {
   static title() {
     return "I'm Hunter.";
@@ -81,14 +85,17 @@ export class AdminArticleTableView {
   static articleTitle() {
     return "title";
   }
-  static articleDetail() {
-    return "detail";
+  static articleSubtitle() {
+    return "subtitle";
+  }
+  static articleSummary() {
+    return "summary";
+  }
+  static articleFile() {
+    return "file";
   }
   static articleSlug() {
     return "slug";
-  }
-  static articleContent() {
-    return "content";
   }
   static articleUpdated() {
     return "updated";
@@ -165,12 +172,17 @@ export class ArticleDetailView extends ArticleViewDateFormatting {
 }
 
 export class ArticleListView extends ArticleViewDateFormatting {
-
+  static emptyArticleListTitle() {
+    return "Content is coming.";
+  }
+  static emptyArticleListSubtitle() {
+    return "Just you wait!";
+  }
 }
 
 export class BadRouteView {
   static title() {
-    return "That page doesn't exist."
+    return "A page for this link doesn't exist."
   }
   static subtitle() {
     return "If you manually typed the link, check for typos then try again."

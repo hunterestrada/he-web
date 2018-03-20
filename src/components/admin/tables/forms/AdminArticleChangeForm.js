@@ -22,8 +22,9 @@ class AdminArticleChangeForm extends React.Component {
     return {
       slug: this.article.slug || '',
       title: this.article.title || '',
-      detail: this.article.detail || '',
-      content: this.article.content || ''
+      subtitle: this.article.subtitle || '',
+      summary: this.article.summary || '',
+      file: this.article.file || ''
     }
   }
 
@@ -45,14 +46,20 @@ class AdminArticleChangeForm extends React.Component {
         </span>
         <span className={NAME_TABLE_DATA_CELL}>
           <input type={form.TYPE_INPUT_TEXT}
-            value={this.state.detail}
-            onChange={this.onUserEditDetail}>
+            value={this.state.subtitle}
+            onChange={this.onUserEditSubtitle}>
           </input>
         </span>
         <span className={NAME_TABLE_DATA_CELL}>
-          <textarea value={this.state.content}
-            onChange={this.onUserEditContent}>
+          <textarea value={this.state.summary}
+            onChange={this.onUserEditSummary}>
           </textarea>
+        </span>
+        <span className={NAME_TABLE_DATA_CELL}>
+          <input type={form.TYPE_INPUT_TEXT}
+            value={this.state.file}
+            onChange={this.onUserEditFile}>
+          </input>
         </span>
         <span className={NAME_TABLE_DATA_CELL}>
           {string.getFormattedDate(this.article.updated)}
@@ -123,15 +130,21 @@ class AdminArticleChangeForm extends React.Component {
     });
   }
 
-  onUserEditDetail = (event) => {
+  onUserEditSubtitle = (event) => {
     this.setState({
-      detail: event.target.value || ''
+      subtitle: event.target.value || ''
     });
   }
 
-  onUserEditContent = (event) => {
+  onUserEditSummary = (event) => {
     this.setState({
-      content: event.target.value || ''
+      summary: event.target.value || ''
+    });
+  }
+
+  onUserEditFile = (event) => {
+    this.setState({
+      file: event.target.value || ''
     });
   }
 

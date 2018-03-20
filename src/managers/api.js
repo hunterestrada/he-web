@@ -3,8 +3,10 @@ import * as cache from 'managers/cache.js'
 
 const HEADERS = new Headers({
   'Accept': 'application/json',
-  'Content-Type': 'application/json'
+  'Content-Type': 'application/json',
 });
+
+const CREDENTIALS = 'include';
 
 const ENDPOINT_BASE = 'http://127.0.0.1:2250/';
 const ENDPOINT_ARTICLE_LIST = ENDPOINT_BASE + 'articles/';
@@ -17,7 +19,7 @@ const METHOD_PUT = 'PUT';
 const METHOD_DELETE = 'DELETE';
 
 /*
-  Wraps underlying 'fetch' provided by React for syntactic sugar.
+  Wraps underlying 'fetch' provided by React for cleaner calls.
  */
 const fetchJSON = (endpoint, method, data) => {
   return fetch(
@@ -25,15 +27,14 @@ const fetchJSON = (endpoint, method, data) => {
     {
       method: method,
       body: JSON.stringify(data),
-      headers: HEADERS
+      headers: HEADERS,
+      credentials: CREDENTIALS
     }
   ).then(
     response => response.ok ?
       response.json() : Promise.reject(response)
   );
 };
-
-// ENDPOINT_ARTICLE_LIST
 
 export const getArticleList = () => {
   return fetchJSON(

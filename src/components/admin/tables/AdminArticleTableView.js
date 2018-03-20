@@ -38,7 +38,6 @@ class AdminArticleTableView extends React.Component {
   }
 
   render() {
-    console.log('TABLEVIEW', cache.getIsAdminAuthenticated());
     if (!cache.getIsAdminAuthenticated()) {
       return <Redirect to={route.ADMIN_SIGN_IN}/>
     }
@@ -57,10 +56,13 @@ class AdminArticleTableView extends React.Component {
                 {string.articleTitle()}
               </span>
               <span className={NAME_TABLE_DATA_CELL}>
-                {string.articleDetail()}
+                {string.articleSubtitle()}
               </span>
               <span className={NAME_TABLE_DATA_CELL}>
-                {string.articleContent()}
+                {string.articleSummary()}
+              </span>
+              <span className={NAME_TABLE_DATA_CELL}>
+                {string.articleFile()}
               </span>
               <span className={NAME_TABLE_DATA_CELL}>
                 {string.articleUpdated()}

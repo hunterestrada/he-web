@@ -19,22 +19,41 @@ class ArticleListView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      articleList: cache.getArticleList()
+      articleList: cache.getArticleList(),
+      didLoadData: false
     };
   }
 
   componentDidMount() {
-    if (this.state.articleList.length > 0) {
-      return;
-    }
-    api.getArticleList().then(json => {
-      this.setState({
-        articleList: json.data
-      });
+    this.setState({
+      didLoadData: true
     });
+    // if (this.state.articleList.length > 0) {
+    //   return;
+    // }
+    // api.getArticleList().then(json => {
+    //   this.setState({
+    //     articleList: json.data,
+    //     didLoadData: true
+    //   });
+    // });
   }
 
   render() {
+    if (this.state.didLoadData && this.state.articleList.length == 0) {
+      return (
+        <div className={NAME_VIEW_LIST_ARTICLE}>
+          <ul>
+            <ArticleListItem
+              route={''}
+              title={string.emptyArticleListTitle()}
+              detail={''}
+              date={''}
+            />
+          </ul>
+        </div>
+      )
+    }
     return (
       <div className={NAME_VIEW_LIST_ARTICLE}>
         <ul>

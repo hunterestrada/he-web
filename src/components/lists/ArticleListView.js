@@ -3,11 +3,10 @@ import React from 'react';
 
 import ArticleListItem from './items/ArticleListItem';
 
-import * as api from 'managers/api.js'
 import * as cache from 'managers/cache.js'
 import * as style from 'managers/style.js'
 import * as route from 'managers/route.js'
-import { ArticleListView as string} from 'managers/string.js'
+import { ArticleListView as string } from 'managers/string.js'
 
 import './ArticleListView.css'
 
@@ -40,7 +39,7 @@ class ArticleListView extends React.Component {
   }
 
   render() {
-    if (this.state.didLoadData && this.state.articleList.length == 0) {
+    if (this.state.didLoadData && this.state.articleList.length === 0) {
       return (
         <div className={NAME_VIEW_LIST_ARTICLE}>
           <ul>
